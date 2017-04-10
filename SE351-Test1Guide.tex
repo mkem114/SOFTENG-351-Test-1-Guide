@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{lastpage}
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+
+\author{Michael Kemp}
+\title{SOFTENG 351: Fundamentals of Database Systems - Guide to Test 1}
+\date{\today}
+
+\lhead{\thetitle}
+\rhead{Section: \thesection}
+\lfoot{Michael Kemp}
+\cfoot{Version: ALPHA\#1 as of \thedate}
+\rfoot{Page \thepage \ of \pageref{LastPage}}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+\section{Basics of the relational model of data}
+	\subsection{The relational model of data}
+		\begin{itemize}
+			\item \textit{relations} are sets of \textit{tuples} often represented as a table
+			\item \textit{attributes} are the column titles of a relation
+			\item for each attribute we assign a \textit{domain} which is a universal set containing all possible values(like a string; $dom(A) = string$
+			\item \textit{tuples} are the rows of a relation and all have the same structure in a relation
+			\item if there is no value for an attribute then the value is \textit{null}
+			\item \textit{relation schema} are a finite set $R$ where attributes are $A$ and each attribute $A\in R$ has a domain $dom(A)$
+			\item relation schema can be written $R = \{A_1, A_2 ... A_n\}$ or $R(A_1, A_2 ... A_n)$ or $R(A_1:dom(A_1) ... A_n:dom(A_n)$
+			\item All \textit{R-tuples} (a tuple in a relation schema) are an element $t$ of the Cartesian product of the domains of all the attributes $t \in A_1 \times A_2 \times ... A_n$ because each attribute's value is bound to it's respective domain.
+			\item \textit{$R$-relations} are a finite set $r$ of $R$-tuples thus $r\subseteq dom(A_1)\times...dom(A_n)$
+			\item R-tuples can be written with their values $t = (A_1:v_1...A_n:v_n)$
+			\item A \textit{database-schema} is a finite set $S$ of relation schemata
+			\item An $S$-database $I$ consists of one $R$-relation for $I(R)$ for each relation $R$ in $S$ ($I = \{I(R)|R\in S\}$)
+			\item Having duplicates in a database is normally useless so we have \textit{keys} to ensure a uniqueness over an attribute or a combination of
+			\item \textit{superkey} over a relation schema $R$
+			\begin{itemize}
+				\item finite, non-empty subset $K \subseteq R$
+				\item is \textit{satisfied} if an $R$-relation $r$ only has tuples with a unique combination of values for each attribute in the superkey.
+				\item A \textit{Key} is a superkey if there is no subset which is also a satisfied superkey
+				\item A \textit{foreign key} is when all of the combination of values of attributes(in the foreign key) is in the set of the table which defines the foreign key($[A_1..A_n] \subseteq S[A_1..A_n]$). Also the same $S$ can not be referenced twice.
+			\end{itemize}
+		\end{itemize}
+	\subsection{SQL as a data definition and query language}
+
+
+\section{Query Languages}
+	\subsection{Relational algebra}
+	tell the author to stop procrastinating...
+	\subsection{Relational calculus}
+	tell the author to stop procrastinating...	
+	\subsection{SQL}
+	tell the author to stop procrastinating...
+
+\section{Database design}
+	\subsection{Entity-Relationship modelling}
+	tell the author to stop procrastinating...
+
+\end{document}
