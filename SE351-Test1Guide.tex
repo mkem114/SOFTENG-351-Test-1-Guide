@@ -1,6 +1,7 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -53,11 +54,67 @@
 			\end{itemize}
 		\end{itemize}
 	\subsection{SQL as a data definition and query language}
-
+		\begin{itemize}
+			\item is a DDL (Data Definition Language) and a DML (Data Manipulation Language)
+			\item names are not case sensitive
+			\item DDL
+			\begin{itemize}
+				\item CREATE TABLE $<table name> <attribute1 domain, ...>$ attributes can be specified as NOT NULL
+				\item DROP TABLE $<table name>$
+				\item ALTER TABLE followed by other stuff
+			\end{itemize}
+			\item Domains
+			\begin{itemize}
+				\item CHARACTER: Character strings of set length
+				\item VARCHAR: Character strings up to set length
+				\item NATIONAL CHARACTER
+				\item INTEGER: Signed 32-bit integer
+				\item SMALLINT: Signed 16-bit integer
+				\item NUMERIC = DECIMAL: Numeric values with definable precision and scale
+				\item FLOAT: Approximate numeric values with definable precision(up to 64)
+				\item REAL: Approximate numeric values up to 64 precision
+				\item DOUBLE PRECISION: Double a REAL
+				\item BIT = BOOLEAN: TRUE, FALSE, false or true
+				\item BIT VARYING: Bit strings
+				\item DATE: YYYY-MM-DD but can use single digits for month and date
+				\item TIME: HH:MM:SS with optional nano seconds and seconds up to (including) 61.999999
+			\end{itemize}
+			\item to insert a tuple to a relation all values must be known thus null exists if it doesn't exist or is no yet known
+			\item \textit{duplicate tuples} are tuples where both values are the same for every attribute
+			\item duplicate tuples are not allowed in relations but IRL it's allowed because it's computational expensive to manage.
+			\item A table is $X$-total if all it's tuples are $X$-total
+			\item Constraints
+			\begin{itemize}
+				\item NOT NULL means $A$ must be $A$-total
+				\item 
+			\end{itemize}			
+		\end{itemize}
+		I'll come back to this
 
 \section{Query Languages}
 	\subsection{Relational algebra}
-	tell the author to stop procrastinating...
+		\begin{itemize}
+			\item $A$ is the set of possible relations
+			\item Partial operations on $A$ take either 1 or 2 relations as input and produce another relation as output
+			\item $\#r$ is the set of attributes of a relation $r$
+			\item Operations:
+			\begin{itemize}
+				\item Attribute selection: $\sigma_{A=B}$ produces a relation where tuples have the same value in attribute $A$ as in $B$
+				\item Constant selection: $\sigma_{A=c}$ Same as attribute but against a constant $c$ instead of an attribute
+				\item Projection: $\pi_{A_1,...A_n}(r)$ Takes a relation $r$ and returns another with only the specified attributes $A_1,...A_n$
+				\item Renaming: $\delta_{oldname\mapsto newname}$ Changes the name of an attribute without changing the relation
+				\item Union: $r_1\cup r_2$ Relations with the same set of attributes $\#r_1 = \#r_2$ form a relation with tuples from both
+				\item Difference: $r_1 - r_2$ Relations with the same set of attributes $\#r_1 = \#r_2$ form a relation with the tuples from the first relation $r_1$ that aren't in the second relation $r_2$
+				\item Join (Natural): $r_1 \bowtie r_2$ Joins tuples in both relations where attributes that are in both all have the same values. If there is more than one match then the cross product is given
+			\end{itemize}
+			\item Redundant Operations:
+			\begin{itemize}
+				\item Intersection: $r_1\cap r_2$ Returns a relation where tuples are in both relations $r_1, r_2$ and have the same set of attributes $\#r_1 = \#r_2$
+				\item Cross-product: $r_1\times r_2$ where both relation have no common attributes the produced relation is every possible pair of tuples
+				\item Division: $r_1\div r_2$ the set of attributes in $r_2$ must be a superset of $r_1$. Where there is there is attribute values for every tuple in $r_2$. It's hard to explain and much easier to show. \url{http://www.mathcs.emory.edu/~cheung/Courses/377/Syllabus/4-RelAlg/division.html}
+			\end{itemize}
+		\end{itemize}
+
 	\subsection{Relational calculus}
 	tell the author to stop procrastinating...	
 	\subsection{SQL}
