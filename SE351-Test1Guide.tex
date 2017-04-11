@@ -53,7 +53,9 @@
 				\item A \textit{foreign key} is when all of the combination of values of attributes(in the foreign key) is in the set of the table which defines the foreign key($[A_1..A_n] \subseteq S[A_1..A_n]$). Also the same $S$ can not be referenced twice.
 			\end{itemize}
 		\end{itemize}
+	
 	\subsection{SQL as a data definition and query language}
+	this whole section is not in the test
 		\begin{itemize}
 			\item is a DDL (Data Definition Language) and a DML (Data Manipulation Language)
 			\item names are not case sensitive
@@ -116,12 +118,46 @@
 		\end{itemize}
 
 	\subsection{Relational calculus}
-	tell the author to stop procrastinating...	
+		\begin{itemize}
+			\item Tuple Relational Calculus is where variables represent tuples
+			\item Domain Relation Calculus (DRC) is where variables represent individual values in the domains $D_i$
+			\item We focus on DRC
+			\item Objects(terms): are placeholders(variables) and values(constants)
+			\item I will come back to this
+			\item $\mathcal{F}$ is the set of all formulae
+			\item Shortcuts:
+			\begin{itemize}
+				\item Inequation: $t\neq t' \Leftrightarrow \neg(t=t')$
+				\item Disjunction: $\psi\vee\phi \Leftrightarrow \neg(\neg\psi\wedge\neg\phi)$
+				\item Universal quantification: $\forall x(\phi) \Leftrightarrow \neg\exists x(\neg\phi)$
+				\item Implication: $\phi\Rightarrow\psi \Leftrightarrow \neg\phi\vee\psi$
+				\item Equivalence: $(\psi\Leftrightarrow\phi) \Leftrightarrow  (\phi\Rightarrow\psi)\wedge(\psi\Rightarrow\phi)$
+				\item Successive quantification: $\forall x_1(\forall x_2(...(\psi))) \Leftrightarrow \forall x_1,x_2,...(\psi)$ same with $\exists$
+			\end{itemize}
+			\item Free variables are those not bound by a quantifier 
+			\item I'll come back to this....right?.....right?
+			\item Domain Relational Calculus
+			\begin{itemize}
+				\item Every query $Q$ in the language of DRC $\mathcal{L}_{DRC}$ is expressed in the form $Q = \{(x_1,...,x_n)|\varphi\}$
+				\item query mapping on a database is expressed as $\{(list of variables)|Q\}$
+			\end{itemize}
+			\item Safe Range Normal Form (SRNF)
+			\begin{itemize}
+				\item Doesn't change the query; just makes it safe
+				\item Elimination of shortcuts: remove all universal quantification, implication and equivalence
+				\item Bounded renaming: change names of bound variables so there is non both bound and free
+				\item Shift Negation: replace sub-formula until negation is only in front of quantification and atoms (down to atoms and remove double negation)
+				\item Shift disjunction: no ands of ors; use de morgan's
+				\item Omit parentheses: remove all unnecessary 
+			\end{itemize}
+		\end{itemize}
+		tell the author to stop procrastinating...	
+	
 	\subsection{SQL}
-	tell the author to stop procrastinating...
+	not in the test
 
 \section{Database design}
 	\subsection{Entity-Relationship modelling}
-	tell the author to stop procrastinating...
+	not in the test
 
 \end{document}
